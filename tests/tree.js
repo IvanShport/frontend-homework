@@ -10,6 +10,15 @@ QUnit.module('Тестируем функцию tree', function () {
 		assert.strictEqual(tree('2'), null);
 	});
 
+	QUnit.test('Проверка на нечисловой параметр', function (assert) {
+		assert.strictEqual(tree('five'), null);
+		assert.strictEqual(tree('пять'), null);
+		assert.strictEqual(tree(true), null);
+		assert.strictEqual(tree(null), null);
+		assert.strictEqual(tree(Infinity), null);
+		assert.strictEqual(tree(NaN), null);
+	});
+
 	QUnit.test('Ёлочка высотой 3', function (assert) {
 		const expected =
 			' * \n' +
