@@ -1,6 +1,6 @@
 'use strict';
 
-let isNumber = (number) => !isNaN(number) && isFinite(number);
+const isNumber = (number) => !isNaN(number) && isFinite(number);
 
 function tree(height) {
   height = parseFloat(height);
@@ -14,11 +14,11 @@ function tree(height) {
     for (let i = 0; i < heightLeaves; i++) {
         spaces = ' '.repeat((width - (i * 2 + 1)) / 2);
         stars = '*'.repeat(i * 2 + 1);
-        strTree += spaces + stars + spaces + '\n';
+        strTree += `${spaces}${stars}${spaces}\n`;
     }
     
     spaces = ' '.repeat((width - 1) / 2);
-    strTree += spaces + '|' + spaces + '\n';
+    strTree += `${spaces}|${spaces}\n`;
 
     return strTree;
   }
