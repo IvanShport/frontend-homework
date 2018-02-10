@@ -1,26 +1,24 @@
 'use strict';
 
-function isNumber(number) {
-  return !isNaN(number) && isFinite(number);
-}
+let isNumber = (number) => !isNaN(number) && isFinite(number);
 
 function tree(height) {
   height = parseFloat(height);
   
   if (isNumber(height) && height >= 3) {
-    var heightLeaves = height - 1;
-    var strTree = '';
-    var width = heightLeaves * 2 - 1;
+    const heightLeaves = height - 1;
+    const width = heightLeaves * 2 - 1;
+
+    let strTree = '', spaces = '', stars = '';
     
-    var spaces = '', stars = '';
-    for (var i = 0; i < heightLeaves; i++) {
-        spaces = new Array((width - (i * 2 + 1)) / 2 + 1).join(' ');
-        stars = new Array(i * 2 + 2).join('*');
+    for (let i = 0; i < heightLeaves; i++) {
+        spaces = ' '.repeat((width - (i * 2 + 1)) / 2);
+        stars = '*'.repeat(i * 2 + 1);
         strTree += spaces + stars + spaces + '\n';
     }
     
-    spaces = new Array((width - 1) / 2 + 1).join(' ');
-    strTree += spaces + new Array(2).join('|') + spaces + '\n';
+    spaces = ' '.repeat((width - 1) / 2);
+    strTree += spaces + '|' + spaces + '\n';
 
     return strTree;
   }
